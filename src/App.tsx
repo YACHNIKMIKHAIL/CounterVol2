@@ -6,7 +6,7 @@ import {changeValueAC, resetValueAC, setMaxValueAC, setMinValueAC, setValueAC, S
 
 function App() {
 
-    const state = useSelector<rootReducerType, StateType>(state => state.state)
+    const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     const dispatch = useDispatch()
 
     const [disabled, setDisabled] = useState<boolean>(false)
