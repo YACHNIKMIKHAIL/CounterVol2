@@ -9,8 +9,6 @@ function App() {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     const dispatch = useDispatch()
 
-    // const [disabled, setDisabled] = useState<boolean>(false)
-
     const setMaxValue = (max: number) => {
         dispatch(setMaxValueAC(max))
     }
@@ -24,11 +22,9 @@ function App() {
     }
     const resetValue = () => {
         dispatch(resetValueAC())
-        // setDisabled(!disabled)
     }
     const setValue = () => {
         dispatch(setValueAC(state.min))
-        // setDisabled(!disabled)
     }
 
     console.log(state)
