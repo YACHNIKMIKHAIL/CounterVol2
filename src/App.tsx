@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "./State/store";
@@ -9,7 +9,7 @@ function App() {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     const dispatch = useDispatch()
 
-    const [disabled, setDisabled] = useState<boolean>(false)
+    // const [disabled, setDisabled] = useState<boolean>(false)
 
     const setMaxValue = (max: number) => {
         dispatch(setMaxValueAC(max))
@@ -24,11 +24,11 @@ function App() {
     }
     const resetValue = () => {
         dispatch(resetValueAC())
-        setDisabled(!disabled)
+        // setDisabled(!disabled)
     }
     const setValue = () => {
         dispatch(setValueAC(state.min))
-        setDisabled(!disabled)
+        // setDisabled(!disabled)
     }
 
     console.log(state)
@@ -45,9 +45,9 @@ function App() {
             }}/>
 
             <div>{state.value}</div>
-            <button onClick={changeValue} style={!disabled||state.value===state.max ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>add</button>
-            <button onClick={resetValue} style={!disabled||state.value===state.min ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>reset</button>
-            <button onClick={setValue} style={disabled ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>set</button>
+            <button onClick={changeValue} style={!state.disabled||state.value===state.max ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>add</button>
+            <button onClick={resetValue} style={!state.disabled||state.value===state.min ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>reset</button>
+            <button onClick={setValue} style={state.disabled ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>set</button>
         </div>
     );
 }
