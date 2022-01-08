@@ -18,4 +18,5 @@ const AppCase = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("https://c4.wallpaperflare.com/wallpaper/243/559/623/space-circles-graphics-planet-wallpaper-preview.jpg") center/cover;
 `

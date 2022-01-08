@@ -9,11 +9,14 @@ export const Shower = (props: ShowerPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     return (
         <GetterCase>
-            <div>{state.value}</div>
+            <div style={{borderRadius: '20px',fontSize:'80px',padding:'20px 50px',backgroundColor:'white'}}>{state.value}</div>
         </GetterCase>
     )
 }
 
 const GetterCase = styled.div`
-  border: 3px red solid;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

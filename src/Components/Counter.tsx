@@ -22,10 +22,8 @@ const Counter = (props: CounterPropsType) => {
         <MainCase>
             <Routes>
                 <Route path={'/'} element={<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>}/>
-                {/*<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>*/}
                 <Route path={'/count'}
                        element={<Shower/>}/>
-
             </Routes>
             <ButtonCase>
                 <button onClick={props.changeValue}
@@ -49,10 +47,14 @@ export default Counter;
 
 
 const MainCase = styled.div`
-  border: 3px solid black;
-  height: 30vh;
-  width: 60vh;
+  height: 35vh;
+  width: 40vh;
+  background-color: rgba(0, 255, 255, 0.69);
+  border-radius: 20px;
 `
 const ButtonCase = styled.div`
-  border: 3px red solid;
+  height: 25%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `

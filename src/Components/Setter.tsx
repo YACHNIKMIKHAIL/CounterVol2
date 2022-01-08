@@ -26,4 +26,9 @@ export const Setter = (props: SetterPropsType) => {
 }
 const SetterCase = styled.div`
   border: 3px red solid;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 `
