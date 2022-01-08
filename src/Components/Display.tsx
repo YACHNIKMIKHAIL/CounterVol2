@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 
 type ShowerPropsType = {}
-export const Shower = (props: ShowerPropsType) => {
+export const Display = (props: ShowerPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     return (
         <GetterCase>
