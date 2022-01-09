@@ -6,7 +6,8 @@ test('correct set value', () => {
         value: 0,
         min: 3,
         max: 7,
-        disabled:false
+        disabled:false,
+        error:false
     }
 
     const endState:StateType = CounterReducer(startState, setMinValueAC(5))
@@ -22,7 +23,8 @@ test('correct change value', () => {
         value: 3,
         min: 3,
         max: 7,
-        disabled:false
+        disabled:false,
+        error:false
     }
 
     const endState:StateType = CounterReducer(startState, changeValueAC(5))
@@ -35,7 +37,8 @@ test('correct reset value', () => {
         value: 3,
         min: 3,
         max: 7,
-        disabled:false
+        disabled:false,
+        error:false
     }
 
     const endState:StateType = CounterReducer(startState, resetValueAC())

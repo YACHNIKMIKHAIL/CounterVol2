@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../State/store";
 import {
     changeValueAC,
-    resetValueAC,
+    resetValueAC, setErrorAC,
     setMaxValueAC,
     setMinValueAC,
     setValueAC,
@@ -17,13 +17,16 @@ const CounterContainer = () => {
 
     const setMaxValue = (max: number) => {
         dispatch(setMaxValueAC(max))
+        dispatch(setErrorAC())
     }
     const setMinValue = (min: number) => {
         dispatch(setMinValueAC(min))
+        dispatch(setErrorAC())
     }
     const changeValue = () => {
         if (state.value < state.max) {
             dispatch(changeValueAC(state.value + 1))
+            dispatch(setErrorAC())
         }
     }
     const resetValue = () => {
@@ -35,6 +38,7 @@ const CounterContainer = () => {
 
     return (
         <div>
+            <div style={state.error? {color:'red'}:{color:'white'}}>ERROR</div>
             <Counter setMaxValue={setMaxValue} setMinValue={setMinValue} changeValue={changeValue}
                      resetValue={resetValue} setValue={setValue}/>
         </div>

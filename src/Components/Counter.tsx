@@ -19,6 +19,9 @@ type CounterPropsType = {
 
 const Counter = (props: CounterPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
+
+    console.log(state)
+
     return (
         <MainCase>
             <Routes>
@@ -43,13 +46,17 @@ const Counter = (props: CounterPropsType) => {
                 <Button variant="contained" onClick={props.changeValue}
                         disabled={!state.disabled || state.value === state.max ? true : false}>ADD</Button>
 
-                <Button variant="contained" onClick={props.resetValue} style={{textDecoration:'none'}}
-                        disabled={!state.disabled || state.value === state.min ? true : false}>
-                    <NavLink to={'/'}> RESET </NavLink></Button>
+                <Button variant="contained" onClick={props.resetValue} style={{textDecoration: 'none'}}
+                        disabled={!state.disabled || !state.error ? true : false}>
+                    <NavLink to={'/'}
 
-                <Button variant="contained" onClick={props.setValue} style={{textDecoration:'none'}}
+                    > RESET </NavLink></Button>
+
+                <Button variant="contained" onClick={props.setValue} style={{textDecoration: 'none'}}
                         disabled={state.disabled ? true : false}>
+                    {/*{state.error?<NavLink to={'/count'}>SET</NavLink>:'SET'}</Button>*/}
                     <NavLink to={'/count'}>SET</NavLink></Button>
+
             </ButtonCase>
         </MainCase>
     );

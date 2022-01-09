@@ -3,12 +3,14 @@ export type StateType = {
     min: number
     max: number
     disabled: boolean
+    error: boolean
 }
 const initialState = {
     value: 0,
     min: 0,
     max: 0,
-    disabled: false
+    disabled: false,
+    error: true
 }
 type ActionsType =
     setMinValueACType
@@ -17,6 +19,7 @@ type ActionsType =
     | resetValueACType
     | setValueACType
     | disabledButtonACType
+    | setErrorACType
 export const CounterReducer = (state = initialState, action: ActionsType): StateType => {
     switch (action.type) {
         case setMinValue: {
@@ -29,13 +32,20 @@ export const CounterReducer = (state = initialState, action: ActionsType): State
             return {...state, value: action.value}
         }
         case resetValue: {
-            return {...state, value: 0, min: 0, max: 0,disabled:action.disabled}
+            return {...state, value: 0, min: 0, max: 0, disabled: action.disabled}
         }
         case setValue: {
-            return {...state, value: action.min,disabled:action.disabled}
+            return {...state, value: action.min, disabled: action.disabled}
         }
         case disabledButton: {
             return {...state, disabled: action.disabled}
+        }
+        case setError: {
+            if ((state.value === state.max) || (state.max <= state.min)) {
+                return {...state, error: action.error}
+            } else {
+                return {...state, error: false}
+            }
         }
         default:
             return state
@@ -68,7 +78,7 @@ const resetValue = 'RESET_VALUE'
 type resetValueACType = ReturnType<typeof resetValueAC>
 export const resetValueAC = () => {
     return {
-        type: resetValue,disabled:false
+        type: resetValue, disabled: false
     } as const
 }
 const setValue = 'SET_VALUE'
@@ -76,7 +86,7 @@ type setValueACType = ReturnType<typeof setValueAC>
 export const setValueAC = (min: number) => {
     return {
         type: setValue,
-        min,disabled:true
+        min, disabled: true
     } as const
 }
 const disabledButton = 'DISABLED'
@@ -85,5 +95,13 @@ export const disabledButtonAC = (disabled: boolean) => {
     return {
         type: disabledButton,
         disabled
+    } as const
+}
+const setError = 'ERROR'
+type setErrorACType = ReturnType<typeof setErrorAC>
+export const setErrorAC = () => {
+    return {
+        type: setError,
+        error: true
     } as const
 }

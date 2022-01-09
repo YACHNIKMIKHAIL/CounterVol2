@@ -8,7 +8,7 @@ type ShowerPropsType = {}
 export const Display = (props: ShowerPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     return (
-        <GetterCase>
+        <GetterCase style={state.error?{color:'red',fontWeight:'bold'}:{}}>
             <div style={{borderRadius: '20px',fontSize:'80px',padding:'20px 50px',backgroundColor:'white'}}>{state.value}</div>
         </GetterCase>
     )
