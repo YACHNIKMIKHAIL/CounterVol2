@@ -2,14 +2,10 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../State/store";
 import {
-    changeValueAC,
-    resetValueAC, setErrorAC,
-    setMaxValueAC,
-    setMinValueAC,
-    setValueAC,
     StateType
 } from "../State/CounterReducer";
 import Counter from "./Counter";
+import {changeValueAC, resetValueAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from "../State/Actions";
 
 const CounterContainer = () => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
