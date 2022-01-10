@@ -1,3 +1,7 @@
+import {useSelector} from "react-redux";
+import {rootReducerType} from "./store";
+import {StateType} from "./CounterReducer";
+
 export enum ActionsType {
     setMinValue = 'SET_MIN_VALUE',
     setMaxValue = 'SET_MAX_VALUE',
@@ -36,7 +40,7 @@ export type resetValueACType = ReturnType<typeof resetValueAC>
 export const resetValueAC = () => {
     return {
         type: ActionsType.resetValue,
-        payload: {disabled: false,min:0,max:0}
+        payload: {disabled: false,value:0, min:0,max:0}
     } as const
 }
 

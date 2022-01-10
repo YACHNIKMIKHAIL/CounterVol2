@@ -1,4 +1,5 @@
-import {changeValueAC, CounterReducer, resetValueAC, setMinValueAC, StateType} from "./CounterReducer";
+import { CounterReducer,  StateType} from "./CounterReducer";
+import {changeValueAC, resetValueAC, setMinValueAC} from "./Actions";
 
 test('correct set value', () => {
 

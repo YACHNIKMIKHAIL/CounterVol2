@@ -55,7 +55,10 @@ const Counter = (props: CounterPropsType) => {
                 <Button variant="contained" onClick={props.setValue} style={{textDecoration: 'none'}}
                         disabled={state.disabled ? true : false}>
                     {/*{state.error?<NavLink to={'/count'}>SET</NavLink>:'SET'}</Button>*/}
-                    <NavLink to={'/count'}>SET</NavLink></Button>
+                    <NavLink to={!state.error?'/count':''}>SET</NavLink></Button>
+
+                {/*<NavLink to={'/count'}>SET</NavLink></Button>*/}
+                {/*<NavLink to={'/count'}>SET</NavLink></Button>*/}
 
             </ButtonCase>
         </MainCase>
