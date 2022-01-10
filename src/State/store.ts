@@ -6,12 +6,10 @@ const rootReducer = combineReducers({
     blabla: CounterReducer
 })
 export type rootReducerType = ReturnType<typeof rootReducer>
-export const store = createStore(rootReducer
-    // , loadState()
-)
+export const store = createStore(rootReducer, loadState())
 
-// store.subscribe(() => {
-//     saveState({
-//         blabla: store.getState().blabla
-//     })
-// })
+store.subscribe(() => {
+    saveState({
+        blabla: store.getState().blabla
+    })
+})

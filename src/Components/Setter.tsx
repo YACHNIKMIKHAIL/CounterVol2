@@ -11,7 +11,7 @@ type SetterPropsType = {
 export const Setter = (props: SetterPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
     return (
-        <SetterCase style={state.error?{color:'red',fontWeight:'bold'}:{}}>
+        <SetterCase style={state.error ? {color: 'red', fontWeight: 'bold'} : {}}>
             max:
             <input type="number" min={state.min} value={state.max} onChange={(e) => {
                 props.callbackMax(e.currentTarget.valueAsNumber)

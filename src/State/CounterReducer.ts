@@ -29,7 +29,7 @@ type ActionsACType =
     | setValueACType
     | disabledButtonACType
     | setErrorACType
-export const CounterReducer = (state = initialState, action: ActionsACType): StateType  => {
+export const CounterReducer = (state = initialState, action: ActionsACType): StateType => {
     switch (action.type) {
         case ActionsType.setMinValue:
         case ActionsType.setMaxValue:
@@ -42,7 +42,7 @@ export const CounterReducer = (state = initialState, action: ActionsACType): Sta
             }
         }
         case ActionsType.setValue: {
-            if (!state.error) {
+            if (!state.error && state.min < state.max) {
                 {
                     return {
                         ...state,
@@ -50,7 +50,6 @@ export const CounterReducer = (state = initialState, action: ActionsACType): Sta
                     }
                 }
             } else {
-                // break
                 return state
             }
         }

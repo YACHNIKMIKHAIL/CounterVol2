@@ -30,36 +30,17 @@ const Counter = (props: CounterPropsType) => {
                        element={<Display/>}/>
             </Routes>
             <ButtonCase>
-                {/*<button onClick={props.changeValue}*/}
-                {/*        style={!state.disabled || state.value === state.max ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>*/}
-                {/*    add*/}
-                {/*</button>*/}
-                {/*<button onClick={props.resetValue}*/}
-                {/*        style={!state.disabled || state.value === state.min ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>*/}
-                {/*    <NavLink to={'/'}> reset</NavLink>*/}
-                {/*</button>*/}
-                {/*<button onClick={props.setValue}*/}
-                {/*        style={state.disabled ? {backgroundColor: 'blue'} : {backgroundColor: 'yellow'}}>*/}
-                {/*    <NavLink to={'/count'}> set</NavLink>*/}
-                {/*</button>*/}
-
                 <Button variant="contained" onClick={props.changeValue}
                         disabled={!state.disabled || state.value === state.max ? true : false}>ADD</Button>
 
                 <Button variant="contained" onClick={props.resetValue} style={{textDecoration: 'none'}}
-                        disabled={!state.disabled || !state.error ? true : false}>
-                    <NavLink to={'/'}
-
-                    > RESET </NavLink></Button>
+                        disabled={!state.disabled || state.value === state.min ? true : false}>
+                    <NavLink to={'/'} style={{textDecoration: 'none'}}> RESET </NavLink></Button>
 
                 <Button variant="contained" onClick={props.setValue} style={{textDecoration: 'none'}}
                         disabled={state.disabled ? true : false}>
-                    {/*{state.error?<NavLink to={'/count'}>SET</NavLink>:'SET'}</Button>*/}
-                    <NavLink to={!state.error?'/count':''}>SET</NavLink></Button>
-
-                {/*<NavLink to={'/count'}>SET</NavLink></Button>*/}
-                {/*<NavLink to={'/count'}>SET</NavLink></Button>*/}
-
+                    <NavLink to={!state.error && state.min < state.max ? '/count' : ''}
+                             style={{textDecoration: 'none'}}>SET</NavLink></Button>
             </ButtonCase>
         </MainCase>
     );

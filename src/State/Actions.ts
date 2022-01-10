@@ -32,7 +32,7 @@ export type changeValueACType = ReturnType<typeof changeValueAC>
 export const changeValueAC = (value: number) => {
     return {
         type: ActionsType.changeValue,
-       payload: {value}
+        payload: {value}
     } as const
 }
 
@@ -40,7 +40,7 @@ export type resetValueACType = ReturnType<typeof resetValueAC>
 export const resetValueAC = () => {
     return {
         type: ActionsType.resetValue,
-        payload: {disabled: false,value:0, min:0,max:0}
+        payload: {disabled: false, value: 0, min: 0, max: 0}
     } as const
 }
 
@@ -48,7 +48,7 @@ export type setValueACType = ReturnType<typeof setValueAC>
 export const setValueAC = (min: number) => {
     return {
         type: ActionsType.setValue,
-       payload: {min, disabled: true}
+        payload: {value: min, disabled: true}
     } as const
 }
 
