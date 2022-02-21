@@ -25,21 +25,21 @@ const Counter = (props: CounterPropsType) => {
     return (
         <MainCase>
             <Routes>
-                <Route path={'/'} element={<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>}/>
+                <Route path={'/CounterVol2'} element={<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>}/>
                 <Route path={'/count'}
                        element={<Display/>}/>
             </Routes>
             <ButtonCase>
                 <Button variant="contained" onClick={props.changeValue}
-                        disabled={!state.disabled || state.value === state.max ? true : false}>ADD</Button>
+                        disabled={!state.disabled || state.value === state.max}>ADD</Button>
 
                 <Button variant="contained" onClick={props.resetValue} style={{textDecoration: 'none'}}
-                        disabled={!state.disabled || state.value === state.min ? true : false}>
-                    <NavLink to={'/'} style={{textDecoration: 'none'}}> RESET </NavLink></Button>
+                        disabled={!state.disabled || state.value === state.min}>
+                    <NavLink to={'/CounterVol2'} style={{textDecoration: 'none'}}> RESET </NavLink></Button>
 
                 <Button variant="contained" onClick={props.setValue} style={{textDecoration: 'none'}}
-                        disabled={state.disabled ? true : false}>
-                    <NavLink to={!state.error && state.min < state.max ? '/count' : ''}
+                        disabled={state.disabled}>
+                    <NavLink to={!state.error && state.min < state.max ? '/count' : '/'}
                              style={{textDecoration: 'none'}}>SET</NavLink></Button>
             </ButtonCase>
         </MainCase>

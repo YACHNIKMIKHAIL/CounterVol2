@@ -34,7 +34,6 @@ const CounterContainer = () => {
 
     return (
         <div>
-            <div style={state.error? {color:'red'}:{color:'white'}}>ERROR</div>
             <Counter setMaxValue={setMaxValue} setMinValue={setMinValue} changeValue={changeValue}
                      resetValue={resetValue} setValue={setValue}/>
         </div>
