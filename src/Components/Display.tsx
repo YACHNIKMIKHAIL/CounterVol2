@@ -4,9 +4,9 @@ import {StateType} from "../State/CounterReducer";
 import React from "react";
 import styled from "styled-components";
 
-type ShowerPropsType = {}
-export const Display = (props: ShowerPropsType) => {
+export const Display = () => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
+
     return (
         <GetterCase style={state.error ? {color: 'red', fontWeight: 'bold'} : {}}>
             <div style={{

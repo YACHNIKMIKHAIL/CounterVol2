@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import {Setter} from "./Setter";
 import {Display} from "./Display";
-import {NavLink, Route, Routes} from 'react-router-dom';
+import {NavLink, Route, Routes, useNavigate} from 'react-router-dom';
 import {Button} from "@mui/material";
 
 type CounterPropsType = {
@@ -19,13 +19,22 @@ type CounterPropsType = {
 
 const Counter = (props: CounterPropsType) => {
     const state = useSelector<rootReducerType, StateType>(state => state.blabla)
+    const navigate = useNavigate()
+    const setV = () => {
+        if (!state.error && state.min < state.max) {
+            navigate('/count')
+            props.setValue()
+        } else {
+            return
+        }
+    }
 
-    console.log(state)
 
     return (
         <MainCase>
             <Routes>
-                <Route path={'/CounterVol2'} element={<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>}/>
+                <Route path={'/CounterVol2'}
+                       element={<Setter callbackMax={props.setMaxValue} callbackMin={props.setMinValue}/>}/>
                 <Route path={'/count'}
                        element={<Display/>}/>
             </Routes>
@@ -37,10 +46,13 @@ const Counter = (props: CounterPropsType) => {
                         disabled={!state.disabled || state.value === state.min}>
                     <NavLink to={'/CounterVol2'} style={{textDecoration: 'none'}}> RESET </NavLink></Button>
 
-                <Button variant="contained" onClick={props.setValue} style={{textDecoration: 'none'}}
+                <Button variant="contained" onClick={setV} style={{textDecoration: 'none'}}
                         disabled={state.disabled}>
-                    <NavLink to={!state.error && state.min < state.max ? '/count' : '/'}
-                             style={{textDecoration: 'none'}}>SET</NavLink></Button>
+                    <div
+                        // to={!state.error && state.min < state.max ? '/count' : '/'}
+                        style={{textDecoration: 'none'}}>SET
+                    </div>
+                </Button>
             </ButtonCase>
         </MainCase>
     );
